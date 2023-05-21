@@ -1,0 +1,44 @@
+app:
+  button:
+    save: Sauvegarder
+    cancel: Annuler
+    close: Fermer
+  flash:
+    success_action: "L'action a été effectuée avec succès."
+    error_action: "Une erreur est survenue lors de l'action."
+    error_action_not_allowed: "Vous n'êtes pas autorisé à effectuer cette action."
+    error_action_not_found: "L'action demandée n'existe pas."
+    error_action_not_allowed_for_entity: "Vous n'êtes pas autorisé à effectuer cette action sur cette entité."
+    error_action_not_found_for_entity: "L'action demandée n'existe pas pour cette entité."
+
+    success:
+      create: "L'élément a été créé avec succès."
+      update: "L'élément a été mis à jour avec succès."
+      delete: "L'élément a été supprimé avec succès."
+      archive: "L'élément a été archivé avec succès."
+      restore: "L'élément a été restauré avec succès."
+
+login:
+  form:
+    username: Nom d'utilisateur
+    password: Mot de passe
+    submit: Connexion
+    password_forgotten: Mot de passe oublié ?
+    register: Créer un compte
+    remember_me: Se souvenir de moi
+    title: Connexion
+    error: "Une erreur est survenue lors de la connexion."
+    email: Email
+resetting:
+  form:
+    title: Réinitialisation du mot de passe
+    submit: Réinitialiser le mot de passe
+    password: Mot de passe
+    password_confirmation: Confirmation du mot de passe
+    error: "Une erreur est survenue lors de la réinitialisation du mot de passe."
+    success: "Le mot de passe a été réinitialisé avec succès."
+    email: Email
+    email_not_found: "L'email n'a pas été trouvé."
+    email_sent: "Un email a été envoyé à l'adresse indiquée."
+    email_subject: "Réinitialisation du mot de passe"
+    email_body: "Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant : %url%"

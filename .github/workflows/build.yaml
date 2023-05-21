@@ -1,0 +1,103 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+
+  build:
+    strategy:
+      matrix:
+        node-version:
+          - '16'
+        docker:
+          - '20.10'
+      fail-fast: true
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache composer vendors
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.json **/composer.lock') }}
+
+      - name: Cache nodejs vendors
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package.json **/yarn.lock') }}
+
+      - name: Build and start services
+        run: |
+          docker compose build
+          docker compose up -d
+
+      - name: Wait for services
+        run: |
+          while status="$(docker inspect  --format="{{.State.Status}}" "$(docker compose ps -q php)")"; do
+            case $status in
+              starting) sleep 1;;
+              healthy) exit 0;;
+              running) 
+                sleep 30
+                exit 0
+                ;;
+              unhealthy)
+                docker-compose ps
+                docker-compose logs
+              exit 1
+              ;;
+            esac
+          done
+          exit 1
+
+      - name: Update dependencies
+        run: |
+          docker-compose exec -T php composer install --prefer-dist --no-progress --no-suggest --no-interaction
+          yarn install
+          yarn dev
+
+      - name: Update test database
+        run: |
+          docker-compose exec -T php php bin/console d:d:c --env=test -vvv
+          docker-compose exec -T php php bin/console d:m:m -n --env=test -vvv
+          docker-compose exec -T php php bin/console h:f:l --env=test -n
+
+      - name: Run tests
+        run: |
+          docker-compose exec -T php php bin/phpunit
+
+      - name: Lint
+        run: |
+          docker-compose exec -T php php bin/console lint:twig templates
+
+      - name: Check coding standard
+        run: |
+          docker-compose exec -T php composer install --working-dir=tools/php-cs-fixer
+          docker-compose exec -T php php tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --dry-run --diff
+
+      - name: Check PHP static analysis
+        run: |
+          docker-compose exec -T php vendor/bin/phpstan analyze
+
+      - name: Check code coverage
+        run: |
+          docker-compose exec -T php vendor/bin/coverage-check var/log/phpunit/reports/clover.xml 70
+
+      - name: Lint Doctrine entities
+        run: |
+          docker-compose exec -T php ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
+
+      - name: Lint composer config
+        run: |
+          docker-compose exec -T php composer validate --strict
+
+      - name: Check if any dependencies are compromised
+        run: |
+          docker-compose exec -T php  composer audit

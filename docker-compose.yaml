@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  php:
+    build:
+      context: ./
+      target: sftpl_php
+    ports:
+      - "80:80"
+    working_dir: /srv/api
+
+  varnish:
+    build:
+      context: ./
+      target: sftpl_varnish
+    depends_on:
+      - php
+    volumes:
+      - ./docker/varnish/conf:/usr/local/etc/varnish:ro
+    tmpfs:
+      - /usr/local/var/varnish:exec
+    ports:
+      - "81:80"

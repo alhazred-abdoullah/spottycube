@@ -1,0 +1,5 @@
+app:
+  validator:
+    constraint:
+      start_at_before_end_at:
+        message: "La date de début doit être antérieure à la date de fin"

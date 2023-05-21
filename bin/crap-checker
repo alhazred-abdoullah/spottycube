@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+$inputFile = $argv[1];
+$allowedMaxCrapLoad = $argv[2] ?? 0;
+
+if (!file_exists($inputFile)) {
+    printf("Error: file '%s' doesn't exist", $inputFile);
+    exit(1);
+}
+
+$file = realpath($inputFile);
+
+try {
+    $xml = new SimpleXMLElement(file_get_contents($file));
+    $crapLoad = $xml->stats->crapLoad.'';
+    settype($crapLoad, 'float');
+
+    if ($crapLoad >$allowedMaxCrapLoad){
+        print("Error: crap load ($crapLoad) is above the allowed limit ($allowedMaxCrapLoad)");
+        exit(1);
+    }
+
+} catch (Exception $e) {
+    print('Error: '.$e->getMessage());
+    exit(1);
+}
+
+print("Success: no crap detected or the crap load is below the allowed limit !");
+exit(0);

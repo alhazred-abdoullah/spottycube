@@ -1,0 +1,16 @@
+services:
+  App\Menu\Builder:
+    public: true
+    arguments:
+      - "@knp_menu.factory"
+      - "@security.helper"
+      - "@translator.default"
+    tags:
+      - { name: knp_menu.menu_builder, method: createSidebarMenu, alias: sidebar } # Named "sidebar" this time
+
+  # declare form.factory service as public
+  form.factory:
+    class: Symfony\Component\Form\FormFactory
+    arguments:
+      - '@form.registry'
+    public: true

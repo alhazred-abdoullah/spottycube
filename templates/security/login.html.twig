@@ -1,0 +1,73 @@
+{% extends 'public.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <form method="post" class="login-form">
+        <div class="card mb-0">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <h5 class="mb-0">Login to your account</h5>
+                    <span class="d-block text-muted">Enter your credentials below</span>
+                </div>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">{{ 'login.form.email'|trans }}</label>
+                    <div class="form-control-feedback form-control-feedback-start">
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-user-circle text-muted"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">{{ 'login.form.password'|trans }}</label>
+                    <div class="form-control-feedback form-control-feedback-start">
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                        <div class="form-control-feedback-icon">
+                            <i class="ph-lock text-muted"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <label class="form-check">
+                        <input type="checkbox" name="_remember_me" class="form-check-input" checked="">
+                        <span class="form-check-label">{{ 'login.form.remember_me'|trans }}</span>
+                    </label>
+                </div>
+
+                {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+                #}
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                </div>
+                <div class="mb-3 text-center">
+                    <a href="{{ path('app_forgot_password_request') }}" class="ms-auto">{{ 'login.form.password_forgotten'|trans }}</a>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+    </form>
+{% endblock %}

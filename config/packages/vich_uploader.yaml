@@ -1,0 +1,12 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        medias:
+            uri_prefix: /uploads/medias
+            upload_destination: '%kernel.project_dir%/public/uploads/medias'
+            namer: Vich\UploaderBundle\Naming\OrignameNamer
+        competition_medias:
+            uri_prefix: /uploads/medias/competitions
+            upload_destination: '%kernel.project_dir%/public/uploads/medias/competitions'
+            namer: Vich\UploaderBundle\Naming\OrignameNamer

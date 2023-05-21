@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  php:
+    environment:
+      - APP_ENV=prod
+      - APP_DEBUG=0
+    build:
+      context: ./
+      target: sftpl_php_prod
