@@ -14,6 +14,12 @@ Encore
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]',
+        pattern: /\.(png|jpe?g|gif|svg)$/,
+    })
+    // Oth
     /*
      * ENTRY CONFIG
      *
@@ -41,6 +47,7 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
+    .autoProvidejQuery()
 
     // configure Babel
     // .configureBabel((config) => {

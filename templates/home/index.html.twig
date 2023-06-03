@@ -1,20 +1,135 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block main %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <!-- Demo header-->
+    <section class="py-5 bg-black  " id="hero">
+        <div class="container py-5">
+            <div class="row px-2 py-5">
+                <div class="col-lg-6  col-sm">
+                    <div class="mb-4 text-white-title">
+                        A one-stop solution
+                        to meet all your project needs
+                    </div>
+                    <div class="">
 
-<div class="example-wrapper mt-5 pt-5">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                        <p class="text-white-subtitle">Find the perfect services for your business</p>
+                        <div class="row">
+                            <div class="input-group col-md-4 input-container">
+                                  <input class="form-control py-2 border-end-0 border input-recherche shadow-none" type="search" value="" placeholder="search..." id="example-search-input">
+                                  <span class="input-group-append border-start-0 border  bg-white search-button" style="display: flex;">
+                                  <button class="btn border-0 " type="button" style="height: 100%;">
+                                    <img src="{{ asset('build/images/search.svg') }}" alt="search" style="height: 100%;">
+                                  </button>
+                                  </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 px-2 d-none d-lg-block text-center ml-3">
+                    <img src="{{ asset('build/images/logo-large.svg') }}" alt="search" style="height: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/srv/api/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/srv/api/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <!-- Demo section 1 -->
+    <section class="py-5 d-flex align-items-center" id="one">
+        <div class="container py-5">
+            <h2 class="headers-section py-2">Explore Our Services</h2>
+            <div class="row">
+            <div class="owl-carousel-slider-one-text owl-carousel owl-theme  text-center">
+                <div class="item"> Graphics & Design </div>
+                <div class="item"> Digital Marketing </div>
+                <div class="item"> Writing & Translation </div>
+                <div class="item"> Video & Animation </div>
+                <div class="item"> Music & Audio </div>
+                <div class="item"> Programming & Tech</div>
+                <div class="item"> Photography </div>
+                <div class="item">Business</div>
+            </div>
+            </div>
+
+        <div class="row">
+            <div id="carousel" class="owl-carousel owl-carousel-one-img-subcategory">
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+                <div class="item">
+                    <img src="{{ asset("build/images/BG.png") }}" alt="1000X1000">
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Demo section 2-->
+    <section class="py-5 d-flex align-items-center" id="two">
+        <div class="container py-5">
+            <div class="row text-center">
+                <div class="col-lg-9 mx-auto">
+                    <h2 class="h1 mb-4">Demo section 2</h2>
+                    <p class="font-italic mb-4 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <!-- Scroll to top -->
+                    <a class="btn btn-outline-light px-4 rounded-0 scroll-top" href="#hero">Back to top</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo section 3 -->
+    <section class="py-5 d-flex align-items-center" id="three">
+        <div class="container py-5">
+            <div class="row text-center">
+                <div class="col-lg-9 mx-auto">
+                    <h2 class="h1 mb-4">Demo section 3</h2>
+                    <p class="font-italic mb-4 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <!-- Scroll to top -->
+                    <a class="btn btn-outline-light px-4 rounded-0 scroll-top" href="#hero">Back to top</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo section 4 -->
+    <section class="py-5 d-flex align-items-center" id="four">
+        <div class="container py-5">
+            <div class="row text-center">
+                <div class="col-lg-9 mx-auto">
+                    <h2 class="h1 mb-4">Demo section 4</h2>
+                    <p class="font-italic mb-4 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <!-- Scroll to top -->
+                    <a class="btn btn-outline-light px-4 rounded-0 scroll-top" href="#hero">Back to top</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block script %}
+
 {% endblock %}

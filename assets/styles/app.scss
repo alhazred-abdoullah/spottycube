@@ -1,3 +1,158 @@
 @import "variables";
 @import "~bootstrap/scss/bootstrap";
 @import "custom-theme";
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../font/DMSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../font/design.collection4.Comfortaa Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+// nav bar
+.navbar-nav {
+  #white-space: nowrap;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+
+}
+
+
+.topbar-logo {
+  margin-right: auto;
+  width: 153px;
+  height: 40px;
+}
+.menu-item {
+  a{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.006em;
+  }
+
+}
+.logo-text {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height, or 120% */
+  white-space: nowrap;
+  letter-spacing: -0.014em;
+  padding-left: 9.1px ;
+  color: #FFFFFF;
+
+  /* Additional styling properties */
+}
+
+.topbar-logo {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center; /* Center vertically */
+}
+// end nav bar
+
+//homa page
+.input-recherche{
+  /* Light Gray / Light Gray 2 */
+
+    border: 1px solid #DDE2E4;
+    padding-right: 10px;
+
+}
+.search-button{
+  border-radius: 0px 6px 6px 0px;
+
+}
+.text-white-title{
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 66px;
+  color: #FFFFFF;
+}
+
+.text-white-subtitle{
+
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 62px;
+  /* or 194% */
+  align-items: center;
+  letter-spacing: -2px;
+  color: #FFFFFF;
+}
+.input-container{
+  width: 582px;
+  height: 40px;
+}
+
+// section one
+.headers-section{
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 62px;
+  /* or 194% */
+  letter-spacing: -2px;
+
+  color: #252C32;
+}
+
+.owl-carousel-slider-one-text{
+  .owl-item {
+    text-align: left;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height, or 150% */
+
+    letter-spacing: -0.006em;
+
+    /* Dark Gray / Dark Gray 2 */
+
+    color: #252C32;
+  }
+
+
+}
+.owl-carousel-one-img-subcategory{
+  .item{
+    width: 252px;
+    height: 345px;
+    left: 0px;
+    top: 0px;
+    border-radius: 6px;
+  }
+
+}
+
+// end home page

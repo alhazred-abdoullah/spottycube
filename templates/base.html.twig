@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+    <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -18,28 +20,58 @@
     <header>
         {% block header %}
             <!-- Fixed navbar -->
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Fixed navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+            <div class="topbar bg-black d-none d-lg-block">
+                <div class="container">
+                    <div class="topbar-logo">
+                        <div class="logo-wrapper">
+                            <a href="#"><img src="{{ asset('build/images/logo.svg') }}" alt="Logo"></a>
+                            <span class="logo-text">Spottycube</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
+                <div class="container">
+                    <div class="navbar-brand d-lg-none logo-wrapper">
+                        <a href="#"><img src="{{ asset('build/images/logo.svg') }}" alt="Logo"></a>
+                        <span class="logo-text">Spottycube</span>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <div class="collapse navbar-collapse " id="navbarNav">
+                        <ul class="navbar-nav">
+                            <!-- Navbar items -->
+                            <li class="nav-item  me-4 menu-item">
+                                <a class="nav-link " href="#">Graphics & Design</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                            <li class="nav-item me-4 menu-item">
+                                <a class="nav-link" href="#">Digital Marketing</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled">Disabled</a>
+                            <li class="nav-item me-4 menu-item">
+                                <a class="nav-link" href="#">Writing & Translation</a>
                             </li>
+                            <li class="nav-item  me-4 menu-item" >
+                                <a class="nav-link" href="#">Video & Animation</a>
+                            </li>
+                            <li class="nav-item me-4 menu-item">
+                                <a class="nav-link" href="#">Music & Audio</a>
+                            </li>
+                            <li class="nav-item me-4 menu-item" >
+                                <a class="nav-link" href="#">Programming & Tech</a>
+                            </li>
+                            <li class="nav-item me-4 menu-item">
+                                <a class="nav-link" href="#">Photography</a>
+                            </li>
+                            <li class="nav-item me-4 menu-item">
+                                <a class="nav-link" href="#">Business</a>
+                            </li>
+
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
@@ -48,6 +80,14 @@
     <main >
         {% block main %}{% endblock %}
     </main>
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+{% endblock %}
+
+
+{% block script %}
+
 {% endblock %}
 </body>
 </html>

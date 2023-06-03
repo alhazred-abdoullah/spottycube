@@ -14,7 +14,7 @@ services:
       - ./docker/php/conf.d/php.dev.ini:/usr/local/etc/php/conf.d/99-php-custom.ini
       - ./docker/apache/vhosts:/etc/apache2/sites-enabled
       - ./:/srv/api:cached
-      - ./var:/srv/api/var:w,r
+      - ./var:/srv/api/var:rw
 
   adminer:
     image: adminer

@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.3"
+    "bootstrap": "^5.2.3",
+    "owl.carousel2": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -15,6 +16,7 @@
     "@symfony/webpack-encore": "^4.2.0",
     "core-js": "^3.27.2",
     "cypress": "^12.2.0",
+    "file-loader": "^6.0.0",
     "imports-loader": "^0.8.0",
     "jquery": "^3.5.1",
     "regenerator-runtime": "^0.13.2",
